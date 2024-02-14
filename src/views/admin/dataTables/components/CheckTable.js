@@ -1,7 +1,6 @@
 import {
   Flex,
   Table,
-  Checkbox,
   Tbody,
   Td,
   Text,
@@ -16,6 +15,7 @@ import {
   usePagination,
   useSortBy,
   useTable,
+  useRowSelect
 } from "react-table";
 
 // Custom components
@@ -34,7 +34,8 @@ export default function CheckTable(props) {
     },
     useGlobalFilter,
     useSortBy,
-    usePagination
+    usePagination,
+    useRowSelect
   );
 
   const {
@@ -61,7 +62,7 @@ export default function CheckTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Check Table
+          Device Management
         </Text>
         <Menu />
       </Flex>
@@ -97,11 +98,6 @@ export default function CheckTable(props) {
                   if (cell.column.Header === "NAME") {
                     data = (
                       <Flex align='center'>
-                        <Checkbox
-                          defaultChecked={cell.value[1]}
-                          colorScheme='brandScheme'
-                          me='10px'
-                        />
                         <Text color={textColor} fontSize='sm' fontWeight='700'>
                           {cell.value[0]}
                         </Text>
